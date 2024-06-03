@@ -21,6 +21,9 @@ include("db/conexao.php");
 </nav>
 <main>
 
+<hr>
+
+
 <?php
 
 $menuop = (isset($_GET["menuop"]))?$_GET["menuop"] : "home";
@@ -49,6 +52,7 @@ include("paginas/home/index.php");
 }
 
 ?>
+
 </main>
 </body>
 </html>
