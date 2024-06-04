@@ -1,6 +1,6 @@
 <h2>Novo contato</h2>
 <hr>
-<form action="" method="POST">
+<form action="index.php?menuop=inserir-contato" method="POST">
 
   <div>
 <input type="text" name="nomecontato"  placeholder="Nome">
@@ -18,7 +18,7 @@
 
  <div>
 <label for="sexo">Sexo</label>
-<select name="sexo" id="sexo">
+<select name="sexocontato" id="sexo">
 <option value="m">M</option>
 <option value="g">F</option>
 <option value="o">O</option>
@@ -27,10 +27,6 @@
 
  <div>
 <input type="date" name="datanascicontato"  placeholder="Data de nascimento">
-</div>  
-
- <div>
-<input type="text" name="nomecontato"  placeholder="nome">
 </div>  
 
 <button type="submit">Criar novo contato</button>
