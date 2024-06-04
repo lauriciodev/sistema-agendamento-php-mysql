@@ -3,7 +3,7 @@
 <h2>Pagina de contato</h2>
 </header>
 
-
+<a href="index.php?menuop=cadastro-contato">Novo</a>
 <table border="colapse">
 <thead>
 <tr>
