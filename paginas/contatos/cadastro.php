@@ -12,6 +12,11 @@
 </div>  
 
   <div>
+<input type="text" name="enderecocontato"  placeholder="Endereço">
+</div>  
+
+
+  <div>
 <input type="telefone" name="telefonecontato"  placeholder="Telefone">
 </div>  
 

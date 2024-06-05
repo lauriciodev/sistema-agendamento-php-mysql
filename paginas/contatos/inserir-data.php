@@ -3,7 +3,7 @@
 <?php
 $nomeContato = mysqli_real_escape_string($conexao, $_POST["nomecontato"]);
 $emailContato = mysqli_real_escape_string($conexao,$_POST["emailcontato"]);
-$telefoneContato = mysqli_real_escape_string($conexao,$_POST["telefonecontato"]);
+$enderecoContato =mysqli_real_escape_string($conexao, $_POST["enderecocontato"]);$telefoneContato = mysqli_real_escape_string($conexao,$_POST["telefonecontato"]);
 $sexoContato = mysqli_real_escape_string($conexao,$_POST["sexocontato"]);
 $datanasciContato = mysqli_real_escape_string($conexao,$_POST["datanascicontato"]);
 
@@ -14,15 +14,17 @@ $sql =  "INSERT INTO `tbcontatos` (
   `telefonecontato`, 
   `sexocontato`, 
   `datanascicontato`,
-  `falgfavoritocontato`
+  `falgfavoritocontato`,
+  `enderecocontato`
 ) VALUES (
-    '{$nomeContato}', 
-    '{$emailContato}', 
-    '${telefoneContato}', 
-    '${sexoContato}', 
-    '${datanasciContato}',
-      '1'
-)";
+  '{$nomeContato}', 
+  '{$emailContato}',
+  '{$telefoneContato}',   
+  '{$sexoContato}', 
+  '{$datanasciContato}',
+    '1',
+    '{$enderecoContato}', 
+   )";
 
 mysqli_query($conexao, $sql) or die("erro ao execultar a consulta" . mysqli_error($conexao));
 
