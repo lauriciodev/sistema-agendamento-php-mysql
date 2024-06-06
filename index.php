@@ -38,16 +38,20 @@ include("paginas/contatos/index.php");
 	break;
 
 case "inserir-contato":
-include("paginas/contatos/inserir-data.php");
+include("paginas/contatos/cadastro.php");
 	break;
 
 
 case "cadastro-contato":
-include("paginas/contatos/cadastro.php");
+include("paginas/contatos/form-cadastro.php");
 	break;
 
+	case "form-edit-contato":
+		include("paginas/contatos/form-edit.php");
+	 break;
+
 	case "editar-contato":
-		include("paginas/contatos/editar.php");
+		include("paginas/contatos/edit.php");
 	 break;
 
 

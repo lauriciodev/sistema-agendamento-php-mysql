@@ -40,7 +40,7 @@ while($dados = mysqli_fetch_assoc($rs)){
  <td><?= $dados["sexocontato"]?></td>
  <td><?= $dados["datanascicontato"]?></td>
  <td>
- <a href="index.php?menuop=editar-contato&idcontato=<?=$dados["idcontato"]?>">Editar</a>
+ <a href="index.php?menuop=form-edit-contato&idcontato=<?=$dados["idcontato"]?>">Editar</a>
  </td>
 
 </tr>

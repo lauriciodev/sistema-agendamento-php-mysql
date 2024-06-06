@@ -1,6 +1,7 @@
-<h3>Enviando dados</h3>
+<h3>Atualizando dados</h3>
 
 <?php
+$idContato = mysqli_real_escape_string($conexao, $_POST["idcontato"]);
 $nomeContato = mysqli_real_escape_string($conexao, $_POST["nomecontato"]);
 $emailContato = mysqli_real_escape_string($conexao,$_POST["emailcontato"]);
 $enderecoContato =mysqli_real_escape_string($conexao, $_POST["enderecocontato"]);
@@ -8,28 +9,20 @@ $telefoneContato = mysqli_real_escape_string($conexao,$_POST["telefonecontato"])
 $sexoContato = mysqli_real_escape_string($conexao,$_POST["sexocontato"]);
 $datanasciContato = mysqli_real_escape_string($conexao,$_POST["datanascicontato"]);
 
+$sql =  "UPDATE `tbcontatos` 
+ SET `nomecontato` = `{$nomeContato}`, 
+  `emailcontato` =  `{$emailContato}`, 
+  `telefonecontato` = `{$telefoneContato}`, 
+  `sexocontato` =  `{$sexoContato}`, 
+  `datanascicontato` = `{$datanasciContato}`,
+  `enderecocontato` = `{$enderecoContato}`
 
-$sql =  "INSERT INTO `tbcontatos` (
-  `nomecontato`, 
-  `emailcontato`, 
-  `telefonecontato`, 
-  `sexocontato`, 
-  `datanascicontato`,
-  `falgfavoritocontato`,
-  `enderecocontato`
-) VALUES (
-  '{$nomeContato}', 
-  '{$emailContato}',
-  '{$telefoneContato}',   
-  '{$sexoContato}', 
-  '{$datanasciContato}',
-    '1',
-  '{$enderecoContato}'
-   )";
+ where `idcontato` = `{$idContato}`";
+
 
 mysqli_query($conexao, $sql) or die("erro ao execultar a consulta" . mysqli_error($conexao));
 
 
-echo "O registro foi inserido com sucesso";
+echo "Registro atualizado com sucesso";
 
 ?>

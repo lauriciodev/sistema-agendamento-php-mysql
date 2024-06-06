@@ -9,8 +9,11 @@ $rs = mysqli_query($conexao, $sql) or die("erro ao execultar" . mysqli_error());
 
 while($dados = mysqli_fetch_assoc($rs)){ ?>
 
-<form>
+<form action="index.php?menuop=editar-contato"  method="POST">
 
+<input type="text" hidden value=<?= $myId ?> name="idcontato">
+
+<div>
 <input type="text" name="nomecontato"value=<?=$dados["nomecontato"]?>  placeholder="Nome">
 </div>  
 
@@ -42,6 +45,8 @@ while($dados = mysqli_fetch_assoc($rs)){ ?>
  <div>
 <input type="date" name="datanascicontato"  placeholder="Data de nascimento">
 </div>  
+
+<button type="submit">Atualizar</button>
 </form>
 
 <?php } ?>
