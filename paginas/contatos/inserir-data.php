@@ -10,7 +10,7 @@ $datanasciContato = mysqli_real_escape_string($conexao,$_POST["datanascicontato"
 
 $sql =  "INSERT INTO `tbcontatos` (
   `nomecontato`, 
-    `emailcontato`, 
+  `emailcontato`, 
   `telefonecontato`, 
   `sexocontato`, 
   `datanascicontato`,
@@ -23,7 +23,7 @@ $sql =  "INSERT INTO `tbcontatos` (
   '{$sexoContato}', 
   '{$datanasciContato}',
     '1',
-    '{$enderecoContato}', 
+  '{$enderecoContato}'
    )";
 
 mysqli_query($conexao, $sql) or die("erro ao execultar a consulta" . mysqli_error($conexao));

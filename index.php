@@ -46,6 +46,10 @@ case "cadastro-contato":
 include("paginas/contatos/cadastro.php");
 	break;
 
+	case "editar-contato":
+		include("paginas/contatos/editar.php");
+	 break;
+
 
 case "tarefas":
 include("paginas/tarefas/index.php");

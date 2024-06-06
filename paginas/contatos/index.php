@@ -10,6 +10,7 @@
   <th>Id</th> 
   <th>Nome</th>
   <th>Email</th>
+  <th>Endereço</th>
   <th>Telefone</th>
   <th>Sexo</th>
   <th>Data nasc</th>
@@ -34,9 +35,13 @@ while($dados = mysqli_fetch_assoc($rs)){
  <td><?= $dados["idcontato"]?></td>
  <td><?= $dados["nomecontato"]?></td>
  <td><?= $dados["emailcontato"]?></td>
+ <td><?= $dados["enderecocontato"]?></td>
  <td><?= $dados["telefonecontato"]?></td>
  <td><?= $dados["sexocontato"]?></td>
  <td><?= $dados["datanascicontato"]?></td>
+ <td>
+ <a href="index.php?menuop=editar-contato&idcontato=<?=$dados["idcontato"]?>">Editar</a>
+ </td>
 
 </tr>
 
