@@ -7,18 +7,25 @@ include("db/conexao.php");
 
 <html>
 <head>
-<title>Agendamento</title>
+<title>Sharknager Task Manager</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=0.1">
+<link rel="stylesheet" href="css/index.css">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link
 </head>
 <body>
-<h2>Sistema de agendamento</h2>
+
+<div class="header__container">
+<img src="img/logo.png" id="logo" alt="logo"/>
+
 <nav>
 <a href="index.php?menuop=home">Home</a>
 <a href="index.php?menuop=contato">Contato</a>
 <a href="index.php?menuop=tarefas">Tarefas</a>
 <a href="index.php?menuop=eventos">Eventos</a>
 </nav>
+</div>
 <main>
 
 <hr>
