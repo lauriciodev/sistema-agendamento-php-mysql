@@ -43,7 +43,7 @@ while($dados = mysqli_fetch_assoc($rs)){ ?>
 
 
  <div>
-<input type="date" name="datanascicontato"  placeholder="Data de nascimento">
+ <input type="date" name="datanascicontato" value=<?= $dados["datanascicontato"]?> placeholder="Data de nascimento">
 </div>  
 
 <button type="submit">Atualizar</button>
