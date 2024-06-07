@@ -3,17 +3,20 @@
 <h2>Pagina de contato</h2>
 </header>
 
+<div class="container-lg">
+
+
 <a href="index.php?menuop=cadastro-contato">Novo</a>
-<table border="colapse">
+<table class="table" border="colapse">
 <thead>
 <tr>
-  <th>Id</th> 
-  <th>Nome</th>
-  <th>Email</th>
-  <th>Endereço</th>
-  <th>Telefone</th>
-  <th>Sexo</th>
-  <th>Data nasc</th>
+  <th scope="col">Id</th> 
+  <th scope="col">Nome</th>
+  <th scope="col">Email</th>
+  <th scope="col">Endereço</th>
+  <th scope="col">Telefone</th>
+  <th scope="col">Sexo</th>
+  <th scope="col">Data nasc</th>
 
 </tr>
 </thead>
@@ -32,14 +35,14 @@ while($dados = mysqli_fetch_assoc($rs)){
 
 <tr>
  
- <td><?= $dados["idcontato"]?></td>
- <td><?= $dados["nomecontato"]?></td>
- <td><?= $dados["emailcontato"]?></td>
- <td><?= $dados["enderecocontato"]?></td>
- <td><?= $dados["telefonecontato"]?></td>
- <td><?= $dados["sexocontato"]?></td>
- <td><?= $dados["datanascicontato"]?></td>
- <td>
+ <td scope="row"><?= $dados["idcontato"]?></td>
+ <td scope="row"><?= $dados["nomecontato"]?></td>
+ <td scope="row"><?= $dados["emailcontato"]?></td>
+ <td scope="row"><?= $dados["enderecocontato"]?></td>
+ <td scope="row"><?= $dados["telefonecontato"]?></td>
+ <td scope="row"><?= $dados["sexocontato"]?></td>
+ <td scope="row"><?= $dados["datanascicontato"]?></td>
+ <td scope="row">
  <a href="index.php?menuop=form-edit-contato&idcontato=<?=$dados["idcontato"]?>">Editar</a>
  </td>
 
@@ -52,3 +55,5 @@ while($dados = mysqli_fetch_assoc($rs)){
 </tbody>
 
 </table>
+
+</div>
