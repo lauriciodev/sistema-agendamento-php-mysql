@@ -37,11 +37,6 @@ case "contato":
 	include("paginas/contatos/index.php");
 	break;
 
-case "delete-contato":
-	include("paginas/contatos/delete.php");
-	break;
-
-
 case "inserir-contato":
 	include("paginas/contatos/cadastro.php");
 	break;
