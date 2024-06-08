@@ -1,17 +1,13 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-
-#logo{
-  width:200px;
+#logo {
+  width: 200px;
 }
 
-.header__container{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
+#header__container {
+  background-color: #eeeeee;
 }

@@ -6,45 +6,56 @@ include("db/conexao.php");
 <!DOCTYPE html>
 
 <html>
+
 <head>
-<title>Sharknager Task Manager</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=0.1">
-<link rel="stylesheet" href="css/index.css">
-<link rel="icon" type="image/png" href="img/favicon.png">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <title>Sharknager Task Manager</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.1">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/index.css">
+
 </head>
+
 <body>
-
-<div class="header__container p-3">
-
-<img src="img/logo.png" id="logo" alt="logo"/>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
- 	</button>
-
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-     
-<a class="nav-item nav-link"  href="index.php?menuop=home">Home</a>
-<a class="nav-item nav-link"  href="index.php?menuop=contato">Contato</a>
-<a class="nav-item nav-link"  href="index.php?menuop=tarefas">Tarefas</a>
-<a class="nav-item nav-link"  href="index.php?menuop=eventos">Eventos</a>
-
-		</div>
-  </div>
-
-</nav>
-</div>
-<main class="px-3">
-
-<hr>
+  <header id="header__container"
+    class="d-flex container-fluid py-2 px-5  align-itens-center justify-content-between border-bottom border-ligth bg-secondary fixed-top">
+    <img src="img/logo.png" class="align-self-start" id="logo" alt="logo" />
+    <nav class="navbar navbar-expand-lg navbar-light w-50">
+      <form class="form-inline my-2 my-lg-0 w-50">
+        <input class="form-control mr-sm-2 flex-grow-1" type="search" placeholder="Pesquisar" aria-label="Search">
+      </form>
+    </nav>
 
 
-<?php
+  </header>
+  <div class="container__main vh-100 pt-5 d-flex align-itens-center">
+
+    <!-- Sidebar -->
+    <div class="col-lg-1 h-100  pt-5 bg-dark">
+      <div class="sidebar">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?menuop=home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?menuop=contato">Contato</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?menuop=tarefas">Tarefas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?menuop=eventos">Eventos</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+    <main class="col-lg-10 p-5">
+
+      <?php
 
 $menuop = (isset($_GET["menuop"]))?$_GET["menuop"] : "home";
 
@@ -94,8 +105,12 @@ include("paginas/home/index.php");
 
 ?>
 
-</main>
+    </main>
+  </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+  </script>
 </body>
+
 </html>
