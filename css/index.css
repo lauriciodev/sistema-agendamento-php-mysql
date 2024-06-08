@@ -2,6 +2,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace !important;
+}
+
+p {
+  font-size: 14px;
+}
+
+table {
+  font-size: 12px !important;
 }
 
 #logo {
@@ -10,4 +19,10 @@
 
 #header__container {
   background-color: #eeeeee;
+}
+
+.float__button {
+  position: absolute;
+  bottom: 55px;
+  right: 5px;
 }
