@@ -1,12 +1,12 @@
 
 <header>
-<h2>Pagina de contato</h2>
+<h2 class="text-center">Pagina de contato</h2>
 </header>
 
-<div class="container-lg">
+<div class="container-lg d-flex flex-column gap-2">
 
 
-<a href="index.php?menuop=cadastro-contato">Novo</a>
+<a href="index.php?menuop=create-contato" class="btn btn-primary align-self-end">Novo</a>
 <table class="table" border="colapse">
 <thead>
 <tr>
@@ -45,6 +45,11 @@ while($dados = mysqli_fetch_assoc($rs)){
  <td scope="row">
  <a href="index.php?menuop=form-edit-contato&idcontato=<?=$dados["idcontato"]?>">Editar</a>
  </td>
+
+<td scope="row">
+ <a href="index.php?menuop=delete-contato&idcontato=<?=$dados["idcontato"]?>">Deletar</a>
+ </td>
+
 
 </tr>
 

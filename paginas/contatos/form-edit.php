@@ -9,7 +9,7 @@ $rs = mysqli_query($conexao, $sql) or die("erro ao execultar" . mysqli_error());
 
 while($dados = mysqli_fetch_assoc($rs)){ ?>
 
-<form action="index.php?menuop=editar-contato"  method="POST">
+  <form action="index.php?menuop=edit-contato"  method="POST">
 
 <input type="text" hidden value=<?= $myId ?> name="idcontato">
 

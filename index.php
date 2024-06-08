@@ -16,17 +16,30 @@ include("db/conexao.php");
 </head>
 <body>
 
-<div class="header__container">
+<div class="header__container p-3">
+
 <img src="img/logo.png" id="logo" alt="logo"/>
 
-<nav>
-<a href="index.php?menuop=home">Home</a>
-<a href="index.php?menuop=contato">Contato</a>
-<a href="index.php?menuop=tarefas">Tarefas</a>
-<a href="index.php?menuop=eventos">Eventos</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+ 	</button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+     
+<a class="nav-item nav-link"  href="index.php?menuop=home">Home</a>
+<a class="nav-item nav-link"  href="index.php?menuop=contato">Contato</a>
+<a class="nav-item nav-link"  href="index.php?menuop=tarefas">Tarefas</a>
+<a class="nav-item nav-link"  href="index.php?menuop=eventos">Eventos</a>
+
+		</div>
+  </div>
+
 </nav>
 </div>
-<main>
+<main class="px-3">
 
 <hr>
 
@@ -44,12 +57,15 @@ case "contato":
 	include("paginas/contatos/index.php");
 	break;
 
-case "inserir-contato":
+case "delete-contato":
+		include("paginas/contatos/delete.php");
+	break;
+
+case "insert-contato":
 	include("paginas/contatos/cadastro.php");
 	break;
 
-
-case "cadastro-contato":
+case "create-contato":
 include("paginas/contatos/form-cadastro.php");
 	break;
 
@@ -57,7 +73,7 @@ include("paginas/contatos/form-cadastro.php");
 		include("paginas/contatos/form-edit.php");
 	 break;
 
-	case "editar-contato":
+	case "edit-contato":
 		include("paginas/contatos/edit.php");
 	 break;
 
