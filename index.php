@@ -20,7 +20,7 @@ include("db/conexao.php");
 
 <body>
   <header id="header__container"
-    class="d-flex container-fluid py-2 px-5  align-itens-center justify-content-between border-bottom border-ligth bg-secondary fixed-top">
+    class="d-flex container-fluid py-2 px-5  align-itens-center justify-content-between border-bottom border-ligth bg-dark fixed-top">
     <img src="img/logo.png" class="align-self-start" id="logo" alt="logo" />
     <nav class="navbar navbar-expand-lg navbar-light w-50">
       <form class="form-inline my-2 my-lg-0 w-50">
@@ -53,8 +53,7 @@ include("db/conexao.php");
     </div>
 
 
-    <main class="col-lg-10 p-5">
-
+    <main class="col-lg-10 p-5 ">
       <?php
 
 $menuop = (isset($_GET["menuop"]))?$_GET["menuop"] : "home";
@@ -103,10 +102,14 @@ include("paginas/home/index.php");
 
 }
 
-?>
-
-    </main>
+?> </main>
   </div>
+
+  <footer>
+    <div class="bg-dark fixed-bottom border-top border-ligth text-white text-center">
+      <p>Desenvolvido por Lauricio De Sousa</p>
+    </div>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
