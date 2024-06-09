@@ -33,27 +33,27 @@ include("db/conexao.php");
   <div class="container__main vh-100 pt-5 d-flex align-itens-center">
 
     <!-- Sidebar -->
-    <div class="col-lg-1 h-100  pt-5 bg-dark">
+    <div class="col-lg-1 h-100  pt-5 bg-dark border border-left border-ligth">
       <div class="sidebar">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link" href="index.php?menuop=home">Home</a>
+            <a class="nav-link text-white" href="index.php?menuop=home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.php?menuop=contato">Contato</a>
+            <a class="nav-link text-white" href="index.php?menuop=contato">Contato</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.php?menuop=tarefas">Tarefas</a>
+            <a class="nav-link text-white" href="index.php?menuop=tarefas">Tarefas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.php?menuop=eventos">Eventos</a>
+            <a class="nav-link text-white" href="index.php?menuop=eventos">Eventos</a>
           </li>
         </ul>
       </div>
     </div>
 
 
-    <main class="col-lg-11 p-5 bg-success">
+    <main class="col-lg-11 p-5 bg-dark">
       <?php
 
 $menuop = (isset($_GET["menuop"]))?$_GET["menuop"] : "home";

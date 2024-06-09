@@ -3,7 +3,7 @@
 </header>
 
 
-<a href="index.php?menuop=create-contato" class="btn btn-dark float__button">Novo</a>
+<a href="index.php?menuop=create-contato" class="btn btn-dark border border-ligth float__button">Novo</a>
 
 <div class="container-lg d-flex flex-column gap-2 overflow-auto" style="max-height: 385px;">
   <table class="table table text-center table-bordered table-dark">
