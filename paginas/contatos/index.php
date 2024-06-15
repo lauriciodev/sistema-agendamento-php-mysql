@@ -23,7 +23,15 @@
 
       <?php
 
-$sql = "select * from tbcontatos";
+
+$texto_pesquisa = (isset($_POST["texto_pesquisa"])) ? $_POST["texto_pesquisa"] : "" ;
+echo "<p> $texto_pesquisa</p>";
+
+$sql = "select * from tbcontatos 
+  where 
+idcontato = '{$texto_pesquisa}' or
+nomecontato LIKE '%{$texto_pesquisa}%'
+";
 $rs = mysqli_query($conexao, $sql) or die("Erro ao execultar" . mysqli_connect_error($conexao));
 
 while($dados = mysqli_fetch_assoc($rs)){

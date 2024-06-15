@@ -23,10 +23,14 @@ include("db/conexao.php");
     class="d-flex container-fluid py-2 px-5  align-itens-center justify-content-between border-bottom border-ligth bg-dark fixed-top">
     <img src="img/logo.png" class="align-self-start" id="logo" alt="logo" />
     <nav class="navbar navbar-expand-lg navbar-light w-50">
-      <form class="form-inline my-2 my-lg-0 w-50">
-        <input class="form-control mr-sm-2 flex-grow-1" type="search" placeholder="Pesquisar" aria-label="Search">
-      </form>
-    </nav>
+
+
+    <form action="index.php?menuop=<?= $_GET["menuop"]?>" method="POST">
+<div class="d-flex gap-2">
+<input class="form-control w-75" type="search" placeholder="jhon doe" name="texto_pesquisa"/>
+<button class="btn border border-ligth btn-dark" type="submit">Pesquisar</button>
+</div>
+</form>
 
 
   </header>

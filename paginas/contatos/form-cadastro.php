@@ -4,7 +4,7 @@
 
 <div class="container-lg border  border-ligth bg-dark p-4">
 
-<form  action="index.php?menuop=isert-contato"  method="POST">
+<form  action="index.php?menuop=insert-contato"  method="POST">
 
    <div class="d-flex p-2 text-white gap-2  w-100 align-itens-center justify-contennt-center">
 
@@ -57,6 +57,6 @@ class="form-control" name="telefonecontato" placeholder="(00) 00000-0000">
 
   <button type="submit" class="btn btn-success">Criar novo contato</button>
 
-  <a href="" class="btn btn-danger">Cancelar</a>
+  <a href="index.php?menuop=contato" class="btn btn-danger">Cancelar</a>
 
 </form>
