@@ -57,7 +57,7 @@ include("db/conexao.php");
     </div>
 
 
-    <main class="col-lg-11 p-5 bg-dark">
+    <main class="col-lg-11 p-5 bg-dark h-100">
       <?php
 
 $menuop = (isset($_GET["menuop"]))?$_GET["menuop"] : "home";

@@ -21,7 +21,11 @@
 
     <tbody>
 
-      <?php
+<?php
+
+
+// fazendo paginação;
+
 
 
 $texto_pesquisa = (isset($_POST["texto_pesquisa"])) ? $_POST["texto_pesquisa"] : "" ;
@@ -31,6 +35,7 @@ $sql = "select * from tbcontatos
   where 
 idcontato = '{$texto_pesquisa}' or
 nomecontato LIKE '%{$texto_pesquisa}%'
+ORDER BY nomecontato DESC
 ";
 $rs = mysqli_query($conexao, $sql) or die("Erro ao execultar" . mysqli_connect_error($conexao));
 
