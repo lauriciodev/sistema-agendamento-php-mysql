@@ -25,6 +25,13 @@
 
 
 // fazendo paginação;
+$quantidade  = 10;
+
+$pagina = (isset($_GET['pagina'])) ? (int)$_GET['pagina'] : 1;
+
+//calculo de valor da pagina;
+
+$inicio = ($quantidade * $pagina) - $quantidade;
 
 
 
@@ -36,6 +43,7 @@ $sql = "select * from tbcontatos
 idcontato = '{$texto_pesquisa}' or
 nomecontato LIKE '%{$texto_pesquisa}%'
 ORDER BY nomecontato DESC
+LIMIT $inicio, $quantidade 
 ";
 $rs = mysqli_query($conexao, $sql) or die("Erro ao execultar" . mysqli_connect_error($conexao));
 
@@ -66,5 +74,13 @@ while($dados = mysqli_fetch_assoc($rs)){
     </tbody>
 
   </table>
+<?php 
+$sql_total = "SELECT idcontato FROM tbcontatos";
+$qtd_query = mysqli_query($conexao, $sql_total) or die(mysql_error($conexao));
+$num_rows = mysqli_num_rows($qtd_query);
 
+?>
+
+
+  <p><?=$num_rows?></p> 
 </div>
