@@ -25,7 +25,7 @@
 
 
 // fazendo paginação;
-$quantidade  = 10;
+$quantidade  = 7;
 
 $pagina = (isset($_GET['pagina'])) ? (int)$_GET['pagina'] : 1;
 
@@ -74,13 +74,24 @@ while($dados = mysqli_fetch_assoc($rs)){
     </tbody>
 
   </table>
+
+
+</div>
+
 <?php 
 $sql_total = "SELECT idcontato FROM tbcontatos";
 $qtd_query = mysqli_query($conexao, $sql_total) or die(mysql_error($conexao));
 $num_rows = mysqli_num_rows($qtd_query);
+$qtd_paginas =   ceil($num_rows / $quantidade);
+
+for($i = 1; $i< $qtd_paginas; $i++){
+  if($i == $pagina){
+      echo "<p class='text-white'> $i</p>";
+  }else{
+   echo "<a href=\"?menuop=contato&pagina=$i \">$i</a>";
+  }
+}
 
 ?>
 
 
-  <p><?=$num_rows?></p> 
-</div>
