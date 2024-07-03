@@ -77,7 +77,7 @@ while($dados = mysqli_fetch_assoc($rs)){
 
 
 </div>
-<div class="d-flex align-item-center justify-content-between bg-light text-dark w-50 m-auto p-1">
+<div class="d-flex align-item-center justify-content-between custom-rounded bg-light w-50 text-dark m-auto p-1">
 <?php 
 $sql_total = "SELECT idcontato FROM tbcontatos";
 $qtd_query = mysqli_query($conexao, $sql_total) or die(mysql_error($conexao));
@@ -97,22 +97,26 @@ $qtd_query = mysqli_query($conexao, $sql_total) or die(mysql_error($conexao));
   }
   
   for($i = 1; $i< $qtd_paginas; $i++){
-  
+   
+
+   if($i>=($pagina -5) && $i <= ($pagina + 5)){ 
   if($i == $pagina){
       echo "<p > $i</p>";
   }else{
      echo "<a href=\"?menuop=contato&pagina=$i \">$i</a>";
   }
   }
+  }
 
   if($pagina < ($qtd_paginas - 5)){
 ?>
 
-<a href="?menuop=contato&pagina=<?php echo $pagina - 1  ?>"> << </a>
-echo "<a href=\"?menuop=contato&pagina=$qtd_paginas \">Ultima Página</a> ";
+<a href="?menuop=contato&pagina=<?php echo $pagina + 1  ?>">>> </a>
 
 <?php
-  }
+  }    
+echo "<a href=\"?menuop=contato&pagina=$qtd_paginas \">Ultima Página</a> ";
+  
 ?>
 
 </div>
