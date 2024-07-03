@@ -25,7 +25,7 @@
 
 
 // fazendo paginação;
-$quantidade  = 9;
+$quantidade  = 7;
 
 $pagina = (isset($_GET['pagina'])) ? (int)$_GET['pagina'] : 1;
 
@@ -77,42 +77,25 @@ while($dados = mysqli_fetch_assoc($rs)){
 
 
 </div>
-<div class="d-flex align-item-center justify-content-between bg-light text-dark w-50 m-auto p-1">
+
 <?php 
 $sql_total = "SELECT idcontato FROM tbcontatos";
 $qtd_query = mysqli_query($conexao, $sql_total) or die(mysql_error($conexao));
-  $num_rows = mysqli_num_rows($qtd_query);
-  $qtd_paginas =   ceil($num_rows / $quantidade);
+$num_rows = mysqli_num_rows($qtd_query);
+$qtd_paginas =   ceil($num_rows / $quantidade);
 
 
 
-  echo "<a href=\"?menuop=contato&pagina=1 \">Primeira Página</a> ";
-
-  if($pagina > 6){
-?>
-
-<a href="?menuop=contato&pagina=<?php echo $pagina - 1  ?>"> << </a>
-
-<?php
-  }
-  
-  for($i = 1; $i< $qtd_paginas; $i++){
+echo "<a class='text-white' href=\"?menuop=contato&pagina=1 \">Primeira Página</a> ";
+for($i = 1; $i< $qtd_paginas; $i++){
   
   if($i == $pagina){
-      echo "<p > $i</p>";
+      echo "<p class='text-white'> $i</p>";
   }else{
      echo "<a href=\"?menuop=contato&pagina=$i \">$i</a>";
   }
-  }
-
-  if($pagina < ($qtd_paginas - 5)){
+}
+echo "<a class='text-white' href=\"?menuop=contato&pagina=$qtd_paginas \">Ultima Página</a> ";
 ?>
 
-<a href="?menuop=contato&pagina=<?php echo $pagina - 1  ?>"> << </a>
-echo "<a href=\"?menuop=contato&pagina=$qtd_paginas \">Ultima Página</a> ";
 
-<?php
-  }
-?>
-
-</div>
