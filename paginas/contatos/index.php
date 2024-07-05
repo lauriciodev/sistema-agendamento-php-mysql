@@ -5,7 +5,7 @@
 
 <a href="index.php?menuop=create-contato" class="btn btn-dark border border-ligth float__button">Novo</a>
 
-<div class="container-lg d-flex flex-column gap-2 overflow-auto" style="max-height: 385px;">
+<div class="container-lg d-flex align-itens-center flex-column gap-2" style="height: 400px;">
   <table class="table table text-center table-bordered table-dark table-striped">
     <thead>
       <tr>
@@ -25,7 +25,7 @@
 
 
 // fazendo paginação;
-$quantidade  = 9;
+$quantidade  = 10;
 
 $pagina = (isset($_GET['pagina'])) ? (int)$_GET['pagina'] : 1;
 
@@ -79,26 +79,29 @@ while($dados = mysqli_fetch_assoc($rs)){
 
   </table>
 
-
-</div>
-<div class="d-flex align-item-center justify-content-between custom-rounded bg-light w-50 text-dark m-auto p-1">
-  <?php 
+  <ul class="pagination mx-auto">
+    <?php 
 $sql_total = "SELECT idcontato FROM tbcontatos";
-$qtd_query = mysqli_query($conexao, $sql_total) or die(mysql_error($conexao));
+$qtd_query = mysqli_query($conexao, $sql_total) or  die ("erro ao execultatr query " . mysqli_error($conexao));
   $num_rows = mysqli_num_rows($qtd_query);
   $qtd_paginas =   ceil($num_rows / $quantidade);
 
 
 
-  echo "<a href=\"?menuop=contato&pagina=1 \">Primeira Página</a> ";
+  echo "
+  <li class='page-item'>
+  <a  class='page-link' href=\"?menuop=contato&pagina=1 \">Primeira Página</a> 
+  </li>
+  ";
 
   if($pagina > 6){
 ?>
+    <li class='page-item'>
+      <a class="page-link" href="?menuop=contato&pagina=<?php echo $pagina - 1  ?>">
+        << </a>
+    </li>
 
-  <a href="?menuop=contato&pagina=<?php echo $pagina - 1  ?>">
-    << </a>
-
-      <?php
+    <?php
   }
   
   for($i = 1; $i< $qtd_paginas; $i++){
@@ -106,22 +109,36 @@ $qtd_query = mysqli_query($conexao, $sql_total) or die(mysql_error($conexao));
 
    if($i>=($pagina -5) && $i <= ($pagina + 5)){ 
   if($i == $pagina){
-      echo "<p > $i</p>";
+
+    echo "
+    <li class='page-item'>
+    <p class='page-link active' > $i</p>
+    </li>
+    ";
+
   }else{
-     echo "<a href=\"?menuop=contato&pagina=$i \">$i</a>";
+     echo "
+     <li class='page-item'>
+     <a class='page-link' href=\"?menuop=contato&pagina=$i \">$i</a> 
+     </li>"
+     ;
   }
   }
   }
 
   if($pagina < ($qtd_paginas - 5)){
 ?>
-
-      <a href="?menuop=contato&pagina=<?php echo $pagina + 1  ?>">>> </a>
-
-      <?php
+    <li class="page-item">
+      <a class="page-link" href="?menuop=contato&pagina=<?php echo $pagina + 1  ?>">>> </a>
+    </li>
+    <?php
   }    
-echo "<a href=\"?menuop=contato&pagina=$qtd_paginas \">Ultima Página</a> ";
-  
+echo "
+<li class='page-item'>
+<a class='page-link' href=\"?menuop=contato&pagina=$qtd_paginas \">Ultima Página</a> 
+</li>
+";
 ?>
 
-</div>
+    </>
+  </ul>
