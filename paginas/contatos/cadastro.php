@@ -7,8 +7,8 @@ $enderecoContato =mysqli_real_escape_string($conexao, $_POST["enderecocontato"])
 $telefoneContato = mysqli_real_escape_string($conexao,$_POST["telefonecontato"]);
 $sexoContato = mysqli_real_escape_string($conexao,$_POST["sexocontato"]);
 $datanasciContato = mysqli_real_escape_string($conexao,$_POST["datanascicontato"]);
-
-
+ 
+ 
 $sql =  "INSERT INTO `tbcontatos` (
   `nomecontato`, 
   `emailcontato`, 
