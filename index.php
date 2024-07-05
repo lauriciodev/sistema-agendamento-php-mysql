@@ -16,6 +16,7 @@ include("db/conexao.php");
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="css/index.css">
 
+
 </head>
 
 <body>
@@ -25,12 +26,12 @@ include("db/conexao.php");
     <nav class="navbar navbar-expand-lg navbar-light w-50">
 
 
-    <form action="index.php?menuop=<?= $_GET["menuop"]?>" method="POST">
-<div class="d-flex gap-2">
-<input class="form-control w-75" type="search" placeholder="jhon doe" name="texto_pesquisa"/>
-<button class="btn border border-ligth btn-dark" type="submit">Pesquisar</button>
-</div>
-</form>
+      <form action="index.php?menuop=<?= $_GET["menuop"]?>" method="POST">
+        <div class="d-flex gap-2">
+          <input class="form-control w-75" type="search" placeholder="jhon doe" name="texto_pesquisa" />
+          <button class="btn border border-ligth btn-dark" type="submit">Pesquisar</button>
+        </div>
+      </form>
 
 
   </header>
