@@ -6,7 +6,7 @@
 <a href="index.php?menuop=create-contato" class="btn btn-dark border border-ligth float__button">Novo</a>
 
 <div class="container-lg d-flex flex-column gap-2 overflow-auto" style="max-height: 385px;">
-  <table class="table table text-center table-bordered table-dark">
+  <table class="table table text-center table-bordered table-dark table-striped">
     <thead>
       <tr>
         <th scope="col">Nome</th>
@@ -21,7 +21,7 @@
 
     <tbody>
 
-<?php
+      <?php
 
 
 // fazendo paginação;
@@ -60,10 +60,14 @@ while($dados = mysqli_fetch_assoc($rs)){
         <td scope="row"><?= $dados["telefonecontato"]?></td>
         <td scope="row"><?= $dados["sexocontato"]?></td>
         <td scope="row"><?= $dados["datanascicontato"]?></td>
-        <td scope="row" class="d-flex gap-2">
-          <a href="index.php?menuop=form-edit-contato&idcontato=<?=$dados["idcontato"]?>">Editar</a>
+        <td scope="row" class="d-flex gap-2 align-item-center justify-content-center">
+          <a href="index.php?menuop=form-edit-contato&idcontato=<?=$dados["idcontato"]?>">
+            <img width="20px" src="img/pen.png" alt="">
+          </a>
 
-          <a href="index.php?menuop=delete-contato&idcontato=<?=$dados["idcontato"]?>">Deletar</a>
+          <a href="index.php?menuop=delete-contato&idcontato=<?=$dados["idcontato"]?>">
+            <img width="20px" src="img/delete.png" alt="">
+          </a>
         </td>
       </tr>
 
@@ -78,7 +82,7 @@ while($dados = mysqli_fetch_assoc($rs)){
 
 </div>
 <div class="d-flex align-item-center justify-content-between custom-rounded bg-light w-50 text-dark m-auto p-1">
-<?php 
+  <?php 
 $sql_total = "SELECT idcontato FROM tbcontatos";
 $qtd_query = mysqli_query($conexao, $sql_total) or die(mysql_error($conexao));
   $num_rows = mysqli_num_rows($qtd_query);
@@ -91,9 +95,10 @@ $qtd_query = mysqli_query($conexao, $sql_total) or die(mysql_error($conexao));
   if($pagina > 6){
 ?>
 
-<a href="?menuop=contato&pagina=<?php echo $pagina - 1  ?>"> << </a>
+  <a href="?menuop=contato&pagina=<?php echo $pagina - 1  ?>">
+    << </a>
 
-<?php
+      <?php
   }
   
   for($i = 1; $i< $qtd_paginas; $i++){
@@ -111,9 +116,9 @@ $qtd_query = mysqli_query($conexao, $sql_total) or die(mysql_error($conexao));
   if($pagina < ($qtd_paginas - 5)){
 ?>
 
-<a href="?menuop=contato&pagina=<?php echo $pagina + 1  ?>">>> </a>
+      <a href="?menuop=contato&pagina=<?php echo $pagina + 1  ?>">>> </a>
 
-<?php
+      <?php
   }    
 echo "<a href=\"?menuop=contato&pagina=$qtd_paginas \">Ultima Página</a> ";
   

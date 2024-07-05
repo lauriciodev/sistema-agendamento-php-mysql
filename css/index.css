@@ -17,9 +17,12 @@ table {
   width: 200px;
 }
 
-
 .float__button {
   position: absolute;
   bottom: 55px;
   right: 5px;
+}
+
+.action__icon {
+  width: 40px;
 }
