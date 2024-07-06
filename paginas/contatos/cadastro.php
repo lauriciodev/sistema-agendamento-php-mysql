@@ -1,16 +1,16 @@
-<h3>Enviando dados</h3>
+<h3 class="text-white">Enviando dados</h3>
 <?php
 
 // Validações e sanitizações
 
 if(isset($_POST['bt_enviar'])){
-    $nome = $_POST['nomecontato'];
-    $endereco = $_POST['enderecocontato'];
-    $email = $_POST['emailcontato'];
-    $telefone = $_POST['telefonecontato'];
-    $sexo = $_POST['sexocontato'];
-    $datanasc = $_POST['datanascicontato'];
-
+    $nome = mysqli_real_escape_string($conexao, $_POST["nomecontato"]);
+    $email = mysqli_real_escape_string($conexao,$_POST["emailcontato"]);
+    $endereco =mysqli_real_escape_string($conexao, $_POST["enderecocontato"]);
+    $telefone = mysqli_real_escape_string($conexao,$_POST["telefonecontato"]);
+    $sexo = mysqli_real_escape_string($conexao,$_POST["sexocontato"]);
+    $datanasc = mysqli_real_escape_string($conexao,$_POST["datanascicontato"]);
+    
     $erros = [];
 
     // Sanitização
@@ -23,6 +23,17 @@ if(isset($_POST['bt_enviar'])){
     // Validação de e-mail
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $erros[] = "Insira um email válido";
+
+    }else{
+
+    $query_email_exists = "SELECT * FROM tbcontatos WHERE emailcontato = '$email'";
+
+    $sql_email = mysqli_query($conexao, $query_email_exists) or die("erro" . mysqli_error($conexao));
+
+    if(!empty($sql_email)){
+        $erros[] = "Email já esta sendo usado";
+    }
+
     }
 
     // Validação de telefone
@@ -36,13 +47,6 @@ if(isset($_POST['bt_enviar'])){
             echo "<li class='text-white'>$erro</li>";
         }
     } else {
-        echo "Dados corretos";
-        $nome = mysqli_real_escape_string($conexao, $_POST["nomecontato"]);
-$email = mysqli_real_escape_string($conexao,$_POST["emailcontato"]);
-$endereco =mysqli_real_escape_string($conexao, $_POST["enderecocontato"]);
-$telefone = mysqli_real_escape_string($conexao,$_POST["telefonecontato"]);
-$sexo = mysqli_real_escape_string($conexao,$_POST["sexocontato"]);
-$datanasc = mysqli_real_escape_string($conexao,$_POST["datanascicontato"]);
  
  
 $sql =  "INSERT INTO `tbcontatos` (
@@ -66,7 +70,7 @@ $sql =  "INSERT INTO `tbcontatos` (
 mysqli_query($conexao, $sql) or die("erro ao execultar a consulta" . mysqli_error($conexao));
 
 
-echo "O registro foi inserido com sucesso";
+echo "<p class='text-white'>O registro foi inserido com sucesso</p>";
 
     }
 }
