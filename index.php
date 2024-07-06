@@ -78,6 +78,7 @@ case "delete-contato":
 
 case "insert-contato":
 	include("paginas/contatos/cadastro.php");
+  
 	break;
 
 case "create-contato":

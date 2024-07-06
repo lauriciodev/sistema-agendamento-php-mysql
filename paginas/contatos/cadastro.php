@@ -1,12 +1,48 @@
 <h3>Enviando dados</h3>
-
 <?php
-$nomeContato = mysqli_real_escape_string($conexao, $_POST["nomecontato"]);
-$emailContato = mysqli_real_escape_string($conexao,$_POST["emailcontato"]);
-$enderecoContato =mysqli_real_escape_string($conexao, $_POST["enderecocontato"]);
-$telefoneContato = mysqli_real_escape_string($conexao,$_POST["telefonecontato"]);
-$sexoContato = mysqli_real_escape_string($conexao,$_POST["sexocontato"]);
-$datanasciContato = mysqli_real_escape_string($conexao,$_POST["datanascicontato"]);
+
+// Validações e sanitizações
+
+if(isset($_POST['bt_enviar'])){
+    $nome = $_POST['nomecontato'];
+    $endereco = $_POST['enderecocontato'];
+    $email = $_POST['emailcontato'];
+    $telefone = $_POST['telefonecontato'];
+    $sexo = $_POST['sexocontato'];
+    $datanasc = $_POST['datanascicontato'];
+
+    $erros = [];
+
+    // Sanitização
+    $nome = filter_input(INPUT_POST, 'nomecontato', FILTER_SANITIZE_SPECIAL_CHARS);
+    $endereco = filter_input(INPUT_POST, 'enderecocontato', FILTER_SANITIZE_SPECIAL_CHARS);
+    $email = filter_input(INPUT_POST, 'emailcontato', FILTER_SANITIZE_EMAIL);
+    $telefone = filter_input(INPUT_POST, 'telefonecontato', FILTER_SANITIZE_NUMBER_INT);
+    $sexo = filter_input(INPUT_POST, 'sexocontato', FILTER_SANITIZE_SPECIAL_CHARS);
+
+    // Validação de e-mail
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $erros[] = "Insira um email válido";
+    }
+
+    // Validação de telefone
+    if (strlen($telefone) < 10) {
+        $erros[] = "Insira um telefone válido";
+    }
+
+    // Exibindo erros, se houver
+    if (!empty($erros)) {
+        foreach($erros as $erro) {
+            echo "<li class='text-white'>$erro</li>";
+        }
+    } else {
+        echo "Dados corretos";
+        $nome = mysqli_real_escape_string($conexao, $_POST["nomecontato"]);
+$email = mysqli_real_escape_string($conexao,$_POST["emailcontato"]);
+$endereco =mysqli_real_escape_string($conexao, $_POST["enderecocontato"]);
+$telefone = mysqli_real_escape_string($conexao,$_POST["telefonecontato"]);
+$sexo = mysqli_real_escape_string($conexao,$_POST["sexocontato"]);
+$datanasc = mysqli_real_escape_string($conexao,$_POST["datanascicontato"]);
  
  
 $sql =  "INSERT INTO `tbcontatos` (
@@ -18,13 +54,13 @@ $sql =  "INSERT INTO `tbcontatos` (
   `falgfavoritocontato`,
   `enderecocontato`
 ) VALUES (
-  '{$nomeContato}', 
-  '{$emailContato}',
-  '{$telefoneContato}',   
-  '{$sexoContato}', 
-  '{$datanasciContato}',
+  '{$nome}', 
+  '{$email}',
+  '{$telefone}',   
+  '{$sexo}', 
+  '{$datanasc}',
     '1',
-  '{$enderecoContato}'
+  '{$endereco}'
    )";
 
 mysqli_query($conexao, $sql) or die("erro ao execultar a consulta" . mysqli_error($conexao));
@@ -32,4 +68,9 @@ mysqli_query($conexao, $sql) or die("erro ao execultar a consulta" . mysqli_erro
 
 echo "O registro foi inserido com sucesso";
 
+    }
+}
+
 ?>
+
+
